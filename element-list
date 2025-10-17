@@ -1,0 +1,6 @@
+com.meli.orders
+com.meli.orders.config
+com.meli.orders.controller
+com.meli.orders.entity
+com.meli.orders.repository
+com.meli.orders.service
