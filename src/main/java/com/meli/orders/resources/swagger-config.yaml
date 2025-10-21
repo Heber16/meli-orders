@@ -1,0 +1,25 @@
+openapi: 3.0.1
+info:
+  title: MELI Orders API
+  version: 1.0.0
+  description: |
+    This API allows managing customer orders in the MELI online store system.
+    It supports creating, reading, updating, and deleting orders, and is designed
+    for scalability and reliability across different environments (dev, test, prod).
+  contact:
+    name: MELI Digital Transformation Team
+    email: support@meli.com
+
+servers:
+  - url: http://localhost:8080
+    description: Local Development Server
+  - url: https://meli-orders-dev.example.com
+    description: Development Environment
+  - url: https://meli-orders-prod.example.com
+    description: Production Environment
+
+tags:
+  - name: Orders
+    description: Operations related to order management
+
+paths: {}

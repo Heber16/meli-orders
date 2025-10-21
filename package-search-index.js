@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.meli.orders"},{"l":"com.meli.orders.config"},{"l":"com.meli.orders.controller"},{"l":"com.meli.orders.entity"},{"l":"com.meli.orders.repository"},{"l":"com.meli.orders.service"}];updateSearchResults();

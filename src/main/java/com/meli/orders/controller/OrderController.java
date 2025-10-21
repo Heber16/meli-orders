@@ -2,6 +2,8 @@ package com.meli.orders.controller;
 
 import com.meli.orders.entity.Order;
 import com.meli.orders.service.OrderService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/orders")
+@Tag(name = "Orders", description = "Endpoints for managing store orders")
 public class OrderController {
 
     private final OrderService orderService;
@@ -18,20 +21,20 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    /** Create order */
+    @Operation(summary = "Create a new order")
     @PostMapping
     public ResponseEntity<Order> create(@RequestBody Order order) {
         Order created = orderService.createOrder(order);
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 
-    /** Read all orders */
+    @Operation(summary = "Get all orders")
     @GetMapping
     public List<Order> findAll() {
         return orderService.getAllOrders();
     }
 
-    /** Read one order by id */
+    @Operation(summary = "Get an order by ID")
     @GetMapping("/{id}")
     public ResponseEntity<Order> findById(@PathVariable Long id) {
         return orderService.getOrderById(id)
@@ -39,7 +42,7 @@ public class OrderController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    /** Update order */
+    @Operation(summary = "Update an order")
     @PutMapping("/{id}")
     public ResponseEntity<Order> update(@PathVariable Long id, @RequestBody Order order) {
         try {
@@ -50,7 +53,7 @@ public class OrderController {
         }
     }
 
-    /** Delete order */
+    @Operation(summary = "Delete an order")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         orderService.deleteOrder(id);
